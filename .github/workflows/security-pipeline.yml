@@ -1,0 +1,14 @@
+name: Security Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scaffold:
+    name: Pipeline scaffold
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Report scaffold status
+        run: echo "Security scanners and policy enforcement are not configured yet."
