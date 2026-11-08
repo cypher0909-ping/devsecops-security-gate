@@ -1,12 +1,7 @@
-FROM python:3.12-slim
+FROM nginx:alpine
 
-WORKDIR /app
+COPY src/index.html /usr/share/nginx/html/index.html
 
-COPY src/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 80
 
-COPY src/ .
-
-EXPOSE 5000
-
-CMD ["python", "app.py"]# TODO: Add the application image build instructions.
+CMD ["nginx", "-g", "daemon off;"]

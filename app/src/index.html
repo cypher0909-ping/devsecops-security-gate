@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101827">
+    <title>DevSecOps Security Gate</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #101827;
+        color: #e5edf8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        padding: 2rem;
+        background:
+          radial-gradient(ellipse at 50% 0, rgb(37 99 235 / 22%), transparent 55%),
+          #101827;
+      }
+
+      main {
+        width: min(100%, 42rem);
+        padding: clamp(2rem, 7vw, 4rem);
+        border: 1px solid #29364a;
+        border-radius: 1.5rem;
+        background: rgb(20 31 48 / 90%);
+        box-shadow: 0 2rem 6rem rgb(0 0 0 / 25%);
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin: 0 0 1.5rem;
+        color: #a7f3d0;
+        font-size: 0.875rem;
+        font-weight: 650;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .status::before {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: #34d399;
+        box-shadow: 0 0 1rem rgb(52 211 153 / 65%);
+        content: "";
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 8vw, 4.25rem);
+        letter-spacing: -0.06em;
+        line-height: 1.05;
+      }
+
+      p {
+        margin: 1.25rem 0 0;
+        color: #a8b5c8;
+        font-size: 1.125rem;
+        line-height: 1.7;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid #34445d;
+        border-radius: 0.5rem;
+        color: #bfdbfe;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="status">Sample app is running</p>
+      <h1>DevSecOps Security Gate</h1>
+      <p>
+        Your container is up. This sample landing page is being served by
+        NGINX and is ready for local testing.
+      </p>
+      <span class="tag">Container status: healthy</span>
+    </main>
+  </body>
+</html>
