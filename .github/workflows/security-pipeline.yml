@@ -1,5 +1,7 @@
-name: Security Pipeline
 
+name: DevSecOps Security Pipeline
+
+# Automatically trigger the workflow
 on:
   push:
     branches: [main]
@@ -7,12 +9,28 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Permissions required by the workflow
+permissions:
+  contents: read
+
 jobs:
-  scaffold:
-    name: Pipeline scaffold
+  build:
+    name: Build and Test Application
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
+      # Step 1: Download repository code
+      - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Report scaffold status
-        run: echo "Security scanners and policy enforcement are not configured yet."
+
+      # Step 2: Check Docker availability
+      - name: Check Docker Version
+        run: docker --version
+
+      # Step 3: Build the Docker image
+      - name: Build Docker Image
+        run: docker build -t devsecops-sample-app:ci ./app
+
+      # Step 4: Confirm successful build
+      - name: Pipeline Success
+        run: echo "Docker application built successfully!"
