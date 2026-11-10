@@ -45,14 +45,14 @@ jobs:
       - name: Start Application Container
         run: |
           docker run -d \
-            -p 5000:5000 \
+            -p 8080:8080 \
             --name devsecops-app \
             devsecops-sample-app:ci
 
       - name: Test Application Health
         run: |
           for attempt in $(seq 1 10); do
-            if curl --fail --silent http://localhost:5000/health; then
+            if curl --fail --silent http://localhost:8080/health; then
               echo "Application health check passed."
               exit 0
             fi
